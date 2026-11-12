@@ -1,55 +1,13 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FLOWT — Hoje</title>
-<style>
-:root{--bg:#f5f7fb;--panel:#fff;--text:#172033;--muted:#6b7280;--line:#e7eaf0;--accent:#4f46e5;--dark:#111827}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}
-.app{min-height:100vh;display:grid;grid-template-columns:220px 1fr}.side{background:var(--dark);color:white;padding:24px 18px;display:flex;flex-direction:column}
-.logo{font-size:26px;font-weight:800;letter-spacing:.12em}.menu{display:grid;gap:8px;margin-top:28px}.menu a{color:#cbd5e1;text-decoration:none;padding:12px;border-radius:9px}.menu a:first-child{background:#263044;color:white}
-.profile{margin-top:auto;border-top:1px solid #2f394a;padding-top:14px;font-size:12px;color:#cbd5e1}.profile a{color:#fff}
-.main{padding:28px;max-width:1400px;width:100%;margin:auto}.top{margin-bottom:22px}.top h1{margin:0 0 6px}.muted{color:var(--muted);font-size:12px}
-.grid{display:grid;grid-template-columns:1.3fr .8fr;gap:20px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:20px}
-.task{padding:13px 0;border-top:1px solid #eef0f3}.task:first-of-type{border-top:0}.tag{display:inline-block;background:#eef2ff;color:#4f46e5;padding:4px 8px;border-radius:999px;font-size:11px;margin-top:5px}
-.float{position:fixed;right:0;top:48%;width:18px;height:82px;background:var(--accent);border-radius:14px 0 0 14px}.version{position:fixed;right:24px;bottom:10px;font-size:11px;color:#9ca3af}
-@media(max-width:850px){.app{grid-template-columns:1fr}.side{display:none}.grid{grid-template-columns:1fr}.main{padding:18px}}
-</style>
-</head>
-<body>
-<div class="app">
-  <aside class="side">
-    <div class="logo">FLOWT</div>
-    <nav class="menu">
-      <a href="#">Hoje</a><a href="#">Inbox</a><a href="#">Agenda</a><a href="#">Projetos</a><a href="#">Evolução</a>
-    </nav>
-    <div class="profile">Protótipo V2.1<br><br><a href="index.html">Sair</a></div>
-  </aside>
-  <main class="main">
-    <div class="top"><h1>Bom dia. Vamos fazer o que importa.</h1><div class="muted">Painel de comando do FLOWT.</div></div>
-    <div class="grid">
-      <div>
-        <section class="panel"><h3>🎯 Foco do dia</h3>
-          <div class="task"><b>1. Finalizar apresentação estratégica</b><div class="muted">Alta prioridade • 1h30</div><span class="tag">Alta</span></div>
-          <div class="task"><b>2. Ligar para fornecedor</b><div class="muted">Hoje • 09:45</div></div>
-          <div class="task"><b>3. Treino</b><div class="muted">Pessoal • 18:00</div></div>
-        </section>
-        <section class="panel"><h3>📅 Agenda</h3>
-          <div class="task"><b>09:00 Planejamento do dia</b></div>
-          <div class="task"><b>14:00 Reunião com João</b><div class="muted">Google Calendar</div></div>
-          <div class="task"><b>18:00 Treino</b><div class="muted">Google Calendar</div></div>
-        </section>
-      </div>
-      <div>
-        <section class="panel"><h3>Progresso</h3><h2>2/3</h2><div class="muted">prioridades concluídas</div></section>
-        <section class="panel"><h3>✦ Secretário FLOWT</h3><div class="muted">IA premium: priorização, planejamento e acompanhamento inteligente.</div></section>
-        <section class="panel"><h3>🏆 Microvitória</h3><div class="muted">Ao concluir a prioridade principal, registre como vai comemorar.</div></section>
-      </div>
-    </div>
-  </main>
-</div>
-<div class="float" title="FLOWT rápido"></div>
-<div class="version">FLOWT V2.1</div>
-</body>
-</html>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FLOWT — Painel</title><link rel="stylesheet" href="styles.css"></head><body>
+<div class="app"><aside class="side"><div class="logo">FLOWT</div><div class="brandSub">seu sistema pessoal de execução</div><nav class="menu"><button data-view="today" class="active">Hoje</button><button data-view="inbox">Inbox</button><button data-view="agenda">Agenda</button><button data-view="projects">Projetos</button><button data-view="evolution">Evolução</button><button data-view="account">Conta</button></nav><div class="profile"><strong id="sideName">Usuário FLOWT</strong><span id="sideEmail">sem e-mail</span><br><button id="logout">Sair</button></div></aside>
+<main class="main"><header class="top"><div><h1 id="title">Bom dia. Vamos fazer o que importa.</h1><div id="sub" class="muted">Prioridade, tempo e execução.</div></div><div id="date" class="date"></div></header>
+<section id="v-today" class="view"><div class="grid"><div class="stack"><section class="panel"><div class="head"><h2>🎯 Foco do dia</h2><button id="addTask" class="primary">+ Nova tarefa</button></div><div id="focus"></div></section><section class="panel"><h2>📅 Agenda de hoje</h2><div id="todayAgenda"></div></section><section class="panel"><h2>🗂 Pode esperar</h2><div id="later"></div></section></div><div class="stack"><section class="panel"><h3>Progresso de hoje</h3><div class="metric"><div><strong id="progress">0/0</strong><div class="muted">prioridades concluídas</div></div><div id="pct">0%</div></div><div class="progress"><span id="bar"></span></div></section><section class="panel coach"><h3>✦ Secretário FLOWT</h3><p id="coach"></p></section><section class="panel"><h3>🏆 Microvitória</h3><div class="field"><input id="reward" placeholder="Como você vai comemorar?"></div><button id="saveReward" class="secondary" style="margin-top:10px">Salvar</button><div id="rewardStatus" class="muted" style="margin-top:8px"></div></section></div></div></section>
+<section id="v-inbox" class="view" hidden><section class="panel"><div class="head"><div><h2>📥 Inbox</h2><div class="muted">Capture primeiro. Organize depois.</div></div><button id="addInbox" class="primary">+ Capturar</button></div><div id="inboxList"></div></section></section>
+<section id="v-agenda" class="view" hidden><section class="panel"><div class="head"><div><h2>📅 Agenda</h2><div class="muted">Tarefas com data e horário.</div></div><button id="addAgenda" class="primary">+ Agendar</button></div><div id="agendaList"></div></section></section>
+<section id="v-projects" class="view" hidden><section class="panel"><div class="head"><div><h2>🧩 Projetos</h2><div class="muted">Objetivos virando execução.</div></div><button id="addProject" class="primary">+ Tarefa</button></div><div id="projects"></div></section></section>
+<section id="v-evolution" class="view" hidden><div class="cards"><div class="card"><div class="muted">Tarefas criadas</div><strong id="created">0</strong></div><div class="card"><div class="muted">Concluídas</div><strong id="done">0</strong></div><div class="card"><div class="muted">Taxa de execução</div><strong id="rate">0%</strong></div></div><section class="panel" style="margin-top:20px"><h2>📈 Histórico recente</h2><div id="history"></div></section></section>
+<section id="v-account" class="view" hidden><div class="account"><section class="panel"><h2>👤 Minha conta</h2><div class="field"><label>Nome</label><input id="accountName"></div><div class="field"><label>E-mail</label><input id="accountEmail" type="email"></div><button id="saveAccount" class="primary" style="margin-top:16px">Salvar alterações</button></section><section class="panel"><h2>⚙️ Preferências</h2><div class="field"><label>Máximo de prioridades por dia</label><select id="maxPriorities"><option value="3">3</option><option value="5">5</option><option value="7">7</option></select></div><button id="savePrefs" class="primary" style="margin-top:16px">Salvar preferências</button></section></div><div class="notice"><b>Fase atual:</b> os dados ficam salvos apenas neste navegador. Conta online real e sincronização entre dispositivos entram com o backend.</div><section class="panel" style="margin-top:18px"><h2>Dados locais</h2><button id="clearData" class="danger">Apagar dados deste dispositivo</button></section></section>
+</main></div>
+<button id="floatTab" class="floatTab" aria-label="Abrir FLOWT rápido"></button><div id="floatBox" class="floatBox" hidden><div class="floatHead"><strong>FLOWT rápido</strong><button id="closeFloat">×</button></div><div class="quick"><input id="quick" placeholder="O que está na sua cabeça?"><button id="quickSave" class="primary">Salvar</button></div></div>
+<div id="modal" class="modalBack" hidden><div class="modal"><div class="modalTop"><div><h2 id="mTitle">Nova tarefa</h2><div class="muted">Registre agora. Organize depois.</div></div><button id="closeModal">×</button></div><div class="formgrid"><div class="field full"><label>Tarefa</label><input id="tTitle" placeholder="O que precisa ser feito?"></div><div class="field"><label>Data</label><input id="tDate" type="date"></div><div class="field"><label>Horário</label><input id="tTime" type="time"></div><div class="field"><label>Prioridade</label><select id="tPriority"><option value="high">Alta</option><option value="medium" selected>Média</option><option value="low">Baixa</option></select></div><div class="field"><label>Projeto</label><input id="tProject" placeholder="Ex.: Trabalho"></div><div class="field full"><label>Onde entra?</label><select id="tBucket"><option value="today">Foco do dia</option><option value="later">Pode esperar</option><option value="inbox">Inbox</option></select></div></div><div class="actions"><button id="cancelModal" class="secondary">Cancelar</button><button id="saveTask" class="primary">Salvar tarefa</button></div></div></div>
+<div class="version">FLOWT V3 interativo</div><script src="app.js"></script></body></html>
