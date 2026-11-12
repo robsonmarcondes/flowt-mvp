@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FLOWT — Hoje</title>
+<style>
+:root{--bg:#f5f7fb;--panel:#fff;--text:#172033;--muted:#6b7280;--line:#e7eaf0;--accent:#4f46e5;--dark:#111827}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}
+.app{min-height:100vh;display:grid;grid-template-columns:220px 1fr}.side{background:var(--dark);color:white;padding:24px 18px;display:flex;flex-direction:column}
+.logo{font-size:26px;font-weight:800;letter-spacing:.12em}.menu{display:grid;gap:8px;margin-top:28px}.menu a{color:#cbd5e1;text-decoration:none;padding:12px;border-radius:9px}.menu a:first-child{background:#263044;color:white}
+.profile{margin-top:auto;border-top:1px solid #2f394a;padding-top:14px;font-size:12px;color:#cbd5e1}.profile a{color:#fff}
+.main{padding:28px;max-width:1400px;width:100%;margin:auto}.top{margin-bottom:22px}.top h1{margin:0 0 6px}.muted{color:var(--muted);font-size:12px}
+.grid{display:grid;grid-template-columns:1.3fr .8fr;gap:20px}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:20px}
+.task{padding:13px 0;border-top:1px solid #eef0f3}.task:first-of-type{border-top:0}.tag{display:inline-block;background:#eef2ff;color:#4f46e5;padding:4px 8px;border-radius:999px;font-size:11px;margin-top:5px}
+.float{position:fixed;right:0;top:48%;width:18px;height:82px;background:var(--accent);border-radius:14px 0 0 14px}.version{position:fixed;right:24px;bottom:10px;font-size:11px;color:#9ca3af}
+@media(max-width:850px){.app{grid-template-columns:1fr}.side{display:none}.grid{grid-template-columns:1fr}.main{padding:18px}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="logo">FLOWT</div>
+    <nav class="menu">
+      <a href="#">Hoje</a><a href="#">Inbox</a><a href="#">Agenda</a><a href="#">Projetos</a><a href="#">Evolução</a>
+    </nav>
+    <div class="profile">Protótipo V2.1<br><br><a href="index.html">Sair</a></div>
+  </aside>
+  <main class="main">
+    <div class="top"><h1>Bom dia. Vamos fazer o que importa.</h1><div class="muted">Painel de comando do FLOWT.</div></div>
+    <div class="grid">
+      <div>
+        <section class="panel"><h3>🎯 Foco do dia</h3>
+          <div class="task"><b>1. Finalizar apresentação estratégica</b><div class="muted">Alta prioridade • 1h30</div><span class="tag">Alta</span></div>
+          <div class="task"><b>2. Ligar para fornecedor</b><div class="muted">Hoje • 09:45</div></div>
+          <div class="task"><b>3. Treino</b><div class="muted">Pessoal • 18:00</div></div>
+        </section>
+        <section class="panel"><h3>📅 Agenda</h3>
+          <div class="task"><b>09:00 Planejamento do dia</b></div>
+          <div class="task"><b>14:00 Reunião com João</b><div class="muted">Google Calendar</div></div>
+          <div class="task"><b>18:00 Treino</b><div class="muted">Google Calendar</div></div>
+        </section>
+      </div>
+      <div>
+        <section class="panel"><h3>Progresso</h3><h2>2/3</h2><div class="muted">prioridades concluídas</div></section>
+        <section class="panel"><h3>✦ Secretário FLOWT</h3><div class="muted">IA premium: priorização, planejamento e acompanhamento inteligente.</div></section>
+        <section class="panel"><h3>🏆 Microvitória</h3><div class="muted">Ao concluir a prioridade principal, registre como vai comemorar.</div></section>
+      </div>
+    </div>
+  </main>
+</div>
+<div class="float" title="FLOWT rápido"></div>
+<div class="version">FLOWT V2.1</div>
+</body>
+</html>
