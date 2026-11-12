@@ -1,132 +1,42 @@
-<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FLOWT MVP V2</title>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>FLOWT — Entrar</title>
 <style>
-body{margin:0;font-family:Arial,sans-serif;background:#f4f6fb;color:#172033}.hidden{display:none}.auth{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr}.brand{background:#111827;color:#fff;padding:64px;display:flex;flex-direction:column;justify-content:center}.brand h1{font-size:56px;letter-spacing:.12em;margin:0}.brand p{font-size:20px;color:#cbd5e1;max-width:520px;line-height:1.5}.wrap{display:grid;place-items:center;padding:30px}.card{width:min(420px,100%);background:#fff;padding:28px;border-radius:20px;box-shadow:0 14px 40px rgba(18,28,45,.1)}input{width:100%;box-sizing:border-box;padding:12px;margin:6px 0 14px;border:1px solid #e5e7eb;border-radius:10px}button{cursor:pointer}.primary{width:100%;padding:12px;border:0;border-radius:10px;background:#4f46e5;color:#fff;font-weight:700}.secondary{width:100%;padding:12px;border:1px solid #e5e7eb;border-radius:10px;background:#fff;margin-top:8px;font-weight:700}.switch{text-align:center;margin-top:14px;font-size:13px;color:#6b7280}.switch button{border:0;background:transparent;color:#4f46e5;font-weight:700}.app{min-height:100vh;display:grid;grid-template-columns:220px 1fr}.side{background:#111827;color:#fff;padding:24px 18px;display:flex;flex-direction:column}.logo{font-size:26px;font-weight:800;letter-spacing:.12em}.menu{display:grid;gap:8px;margin-top:30px}.menu button{background:transparent;border:0;color:#cbd5e1;text-align:left;padding:12px;border-radius:9px}.menu button:first-child,.menu button:hover{background:#263044;color:#fff}.profile{margin-top:auto;border-top:1px solid #2f394a;padding-top:15px;font-size:12px;color:#cbd5e1}.main{padding:28px}.grid{display:grid;grid-template-columns:1.3fr .8fr;gap:20px}.panel{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px;margin-bottom:20px}.task{padding:13px 0;border-top:1px solid #eef0f3}.task:first-of-type{border-top:0}.muted{color:#6b7280;font-size:12px}.floatTab{position:fixed;right:0;top:48%;width:18px;height:82px;background:#4f46e5;border-radius:14px 0 0 14px}.floatBox{position:fixed;right:24px;bottom:24px;width:300px;background:white;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 14px 40px rgba(18,28,45,.15);padding:14px;display:none}.floatBox.open{display:block}.floatGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.floatGrid button{padding:12px;border:1px solid #e5e7eb;background:#fafafa;border-radius:10px;text-align:left}@media(max-width:850px){.auth,.app{grid-template-columns:1fr}.brand,.side{display:none}.grid{grid-template-columns:1fr}}
-</style></head><body>
-<section id="auth" class="auth">
-<div class="brand"><h1>FLOWT</h1><p>Organize o que importa, execute melhor seu dia e acompanhe sua evolução em uma única conta.</p></div>
-<div class="wrap"><div class="card">
-<div id="login"><h2>Entrar</h2><p class="muted">Acesse sua conta e continue de onde parou.</p><label>E-mail</label><input id="le" type="email" placeholder="voce@email.com"><label>Senha</label><input id="lp" type="password" placeholder="••••••••"><button id="btnLogin" type="button" class="primary">Entrar</button><button id="btnGoogleLogin" type="button" class="secondary">Continuar com Google</button><div class="switch">Ainda não tem conta? <button id="btnShowSignup" type="button">Criar conta</button></div></div>
-<div id="signup" class="hidden"><h2>Criar conta</h2><p class="muted">Seu progresso e histórico ficam vinculados ao seu perfil.</p><label>Nome</label><input id="sn" placeholder="Seu nome"><label>E-mail</label><input id="se" type="email" placeholder="voce@email.com"><label>Senha</label><input id="sp" type="password" placeholder="Crie uma senha"><button id="btnSignup" type="button" class="primary">Criar minha conta</button><button id="btnGoogleSignup" type="button" class="secondary">Criar com Google</button><div class="switch">Já tem conta? <button id="btnShowLogin" type="button">Entrar</button></div></div>
-</div></div></section>
-
-<section id="product" class="hidden">
-<div class="app"><aside class="side"><div class="logo">FLOWT</div><div class="menu"><button>Hoje</button><button>Inbox</button><button>Agenda</button><button>Projetos</button><button>Evolução</button></div><div class="profile"><strong id="pn">Usuário</strong><br><span id="pe"></span><br><br><button id="btnLogout" type="button">Sair</button></div></aside>
-<main class="main"><h1 id="hello">Bom dia. Vamos fazer o que importa.</h1><p class="muted">Seu progresso fica salvo na sua conta FLOWT.</p><div class="grid"><div><section class="panel"><h3>🎯 Foco do dia</h3><div class="task"><b>1. Finalizar apresentação estratégica</b><div class="muted">Alta prioridade • 1h30</div></div><div class="task"><b>2. Ligar para fornecedor</b><div class="muted">Hoje • 09:45</div></div><div class="task"><b>3. Treino</b><div class="muted">Pessoal • 18:00</div></div></section><section class="panel"><h3>📅 Agenda</h3><div class="task"><b>09:00 Planejamento do dia</b></div><div class="task"><b>14:00 Reunião com João</b><div class="muted">Google Calendar</div></div><div class="task"><b>18:00 Treino</b><div class="muted">Google Calendar</div></div></section></div><div><section class="panel"><h3>Progresso</h3><h2>2/3</h2><div class="muted">prioridades concluídas</div></section><section class="panel"><h3>✦ Secretário FLOWT</h3><div class="muted">IA premium: priorização, planejamento e acompanhamento inteligente.</div></section><section class="panel"><h3>📈 Sua conta registra</h3><div class="muted">Tarefas, prioridades, histórico por dia e projeto, evolução, preferências e integrações.</div></section></div></div></main></div>
-<div id="floatTab" class="floatTab"></div><div id="fb" class="floatBox"><b>FLOWT rápido</b><div class="floatGrid" style="margin-top:10px"><button>＋ Nova tarefa</button><button>✓ Hoje</button><button>📅 Agenda</button><button>🎙 Voz</button></div><input id="cap" placeholder="O que está na sua cabeça?"><button id="btnSaveTask" type="button" class="primary">Salvar</button></div>
-</section>
-<script>
-(function(){
-  'use strict';
-
-  function el(id){ return document.getElementById(id); }
-
-  function safeGet(key){
-    try { return window.localStorage.getItem(key); }
-    catch(e){ return null; }
-  }
-
-  function safeSet(key,value){
-    try { window.localStorage.setItem(key,value); return true; }
-    catch(e){ return false; }
-  }
-
-  function safeRemove(key){
-    try { window.localStorage.removeItem(key); }
-    catch(e){}
-  }
-
-  function showSignup(){
-    el('login').classList.add('hidden');
-    el('signup').classList.remove('hidden');
-  }
-
-  function showLogin(){
-    el('signup').classList.add('hidden');
-    el('login').classList.remove('hidden');
-  }
-
-  function openApp(user){
-    el('auth').classList.add('hidden');
-    el('product').classList.remove('hidden');
-    el('pn').textContent = user.name || 'Usuário FLOWT';
-    el('pe').textContent = user.email || '';
-    const firstName = (user.name || 'Usuário').trim().split(/\s+/)[0];
-    el('hello').textContent = 'Bom dia, ' + firstName + '. Vamos fazer o que importa.';
-  }
-
-  function signup(){
-    const name = el('sn').value.trim();
-    const email = el('se').value.trim();
-    const pass = el('sp').value;
-
-    if(!name || !email || !pass){
-      alert('Preencha nome, e-mail e senha.');
-      return;
-    }
-
-    const user = {name:name,email:email};
-    openApp(user);
-    safeSet('flowtUser', JSON.stringify(user));
-  }
-
-  function login(){
-    const email = el('le').value.trim();
-    const pass = el('lp').value;
-
-    if(!email || !pass){
-      alert('Preencha e-mail e senha.');
-      return;
-    }
-
-    let user = {name:'Usuário FLOWT',email:email};
-    const saved = safeGet('flowtUser');
-    if(saved){
-      try { user = JSON.parse(saved); } catch(e){}
-    }
-    openApp(user);
-  }
-
-  function googleDemo(){
-    const user = {name:'Usuário Google',email:'google@flowt.app'};
-    openApp(user);
-    safeSet('flowtUser', JSON.stringify(user));
-  }
-
-  function logout(){
-    el('product').classList.add('hidden');
-    el('auth').classList.remove('hidden');
-    showLogin();
-  }
-
-  function saveTask(){
-    const field = el('cap');
-    const value = field.value.trim();
-    if(!value) return;
-    alert('Capturado: ' + value + '\nNo produto funcional, isso ficará salvo na conta.');
-    field.value = '';
-  }
-
-  function bind(id,event,handler){
-    const node = el(id);
-    if(node) node.addEventListener(event,handler);
-  }
-
-  document.addEventListener('DOMContentLoaded', function(){
-    bind('btnShowSignup','click',showSignup);
-    bind('btnShowLogin','click',showLogin);
-    bind('btnSignup','click',signup);
-    bind('btnLogin','click',login);
-    bind('btnGoogleSignup','click',googleDemo);
-    bind('btnGoogleLogin','click',googleDemo);
-    bind('btnLogout','click',logout);
-    bind('btnSaveTask','click',saveTask);
-    bind('floatTab','click',function(){ el('fb').classList.toggle('open'); });
-
-    const saved = safeGet('flowtUser');
-    if(saved){
-      try { openApp(JSON.parse(saved)); }
-      catch(e){ safeRemove('flowtUser'); }
-    }
-  });
-})();
-</script></body></html>
+:root{--bg:#f4f6fb;--dark:#111827;--text:#172033;--muted:#6b7280;--line:#e5e7eb;--accent:#4f46e5}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}
+.auth{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr}.brand{background:var(--dark);color:#fff;padding:64px;display:flex;flex-direction:column;justify-content:center}
+.brand h1{font-size:56px;letter-spacing:.12em;margin:0 0 18px}.brand p{font-size:20px;color:#cbd5e1;max-width:540px;line-height:1.5}
+.wrap{display:grid;place-items:center;padding:30px}.card{width:min(420px,100%);background:#fff;padding:28px;border-radius:20px;box-shadow:0 14px 40px rgba(18,28,45,.1)}
+h2{margin:0 0 6px}.muted{color:var(--muted);font-size:13px}.field{margin-top:16px}label{display:block;margin-bottom:7px}
+input{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+.primary,.secondary{display:block;width:100%;padding:12px;border-radius:10px;text-align:center;text-decoration:none;font-weight:700;margin-top:12px}
+.primary{border:0;background:var(--accent);color:#fff}.secondary{border:1px solid var(--line);background:#fff;color:var(--text)}
+.switch{text-align:center;margin-top:16px;font-size:13px;color:var(--muted)}.switch a{color:var(--accent);font-weight:700;text-decoration:none}
+.version{position:fixed;right:12px;bottom:10px;font-size:11px;color:#9ca3af}
+@media(max-width:850px){.auth{grid-template-columns:1fr}.brand{display:none}}
+</style>
+</head>
+<body>
+<div class="auth">
+  <section class="brand">
+    <h1>FLOWT</h1>
+    <p>Organize o que importa, execute melhor seu dia e acompanhe sua evolução em uma única conta.</p>
+  </section>
+  <section class="wrap">
+    <form class="card" action="dashboard.html" method="get">
+      <h2>Entrar</h2>
+      <p class="muted">Acesse o protótipo e continue seu dia.</p>
+      <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" required placeholder="voce@email.com"></div>
+      <div class="field"><label for="senha">Senha</label><input id="senha" name="senha" type="password" required placeholder="••••••••"></div>
+      <button class="primary" type="submit">Entrar</button>
+      <a class="secondary" href="dashboard.html?google=1">Continuar com Google</a>
+      <div class="switch">Ainda não tem conta? <a href="signup.html">Criar conta</a></div>
+    </form>
+  </section>
+</div>
+<div class="version">FLOWT V2.1</div>
+</body>
+</html>
