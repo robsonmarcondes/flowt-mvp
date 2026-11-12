@@ -1,43 +1,8 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>FLOWT — Criar conta</title>
-<style>
-:root{--bg:#f4f6fb;--dark:#111827;--text:#172033;--muted:#6b7280;--line:#e5e7eb;--accent:#4f46e5}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}
-.auth{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr}.brand{background:var(--dark);color:#fff;padding:64px;display:flex;flex-direction:column;justify-content:center}
-.brand h1{font-size:56px;letter-spacing:.12em;margin:0 0 18px}.brand p{font-size:20px;color:#cbd5e1;max-width:540px;line-height:1.5}
-.wrap{display:grid;place-items:center;padding:30px}.card{width:min(420px,100%);background:#fff;padding:28px;border-radius:20px;box-shadow:0 14px 40px rgba(18,28,45,.1)}
-h2{margin:0 0 6px}.muted{color:var(--muted);font-size:13px}.field{margin-top:16px}label{display:block;margin-bottom:7px}
-input{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
-.primary,.secondary{display:block;width:100%;padding:12px;border-radius:10px;text-align:center;text-decoration:none;font-weight:700;margin-top:12px}
-.primary{border:0;background:var(--accent);color:#fff}.secondary{border:1px solid var(--line);background:#fff;color:var(--text)}
-.switch{text-align:center;margin-top:16px;font-size:13px;color:var(--muted)}.switch a{color:var(--accent);font-weight:700;text-decoration:none}
-.version{position:fixed;right:12px;bottom:10px;font-size:11px;color:#9ca3af}
-@media(max-width:850px){.auth{grid-template-columns:1fr}.brand{display:none}}
-</style>
-</head>
-<body>
-<div class="auth">
-  <section class="brand">
-    <h1>FLOWT</h1>
-    <p>Comece simples. Organize seu dia, execute prioridades e acompanhe sua evolução.</p>
-  </section>
-  <section class="wrap">
-    <form class="card" action="dashboard.html" method="get">
-      <h2>Criar conta</h2>
-      <p class="muted">Nesta fase, o cadastro libera o protótipo. O backend real entra na próxima etapa.</p>
-      <div class="field"><label for="nome">Nome</label><input id="nome" name="nome" required placeholder="Seu nome"></div>
-      <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" required placeholder="voce@email.com"></div>
-      <div class="field"><label for="senha">Senha</label><input id="senha" type="password" required placeholder="Crie uma senha"></div>
-      <button class="primary" type="submit">Criar minha conta</button>
-      <a class="secondary" href="dashboard.html?google=1">Criar com Google</a>
-      <div class="switch">Já tem conta? <a href="index.html">Entrar</a></div>
-    </form>
-  </section>
-</div>
-<div class="version">FLOWT V2.1</div>
-</body>
-</html>
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FLOWT — Criar conta</title>
+<style>:root{--bg:#f4f6fb;--dark:#111827;--text:#172033;--muted:#6b7280;--line:#e5e7eb;--accent:#4f46e5}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--bg);color:var(--text)}.auth{min-height:100vh;display:grid;grid-template-columns:1.1fr .9fr}.brand{background:var(--dark);color:#fff;padding:64px;display:flex;flex-direction:column;justify-content:center}.brand h1{font-size:56px;letter-spacing:.12em;margin:0 0 18px}.brand p{font-size:20px;color:#cbd5e1;max-width:540px;line-height:1.5}.wrap{display:grid;place-items:center;padding:30px}.card{width:min(420px,100%);background:#fff;padding:28px;border-radius:20px;box-shadow:0 14px 40px rgba(18,28,45,.1)}h2{margin:0 0 6px}.muted{color:var(--muted);font-size:13px}.field{margin-top:16px}label{display:block;margin-bottom:7px}input{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}.primary,.secondary{display:block;width:100%;padding:12px;border-radius:10px;text-align:center;text-decoration:none;font-weight:700;margin-top:12px}.primary{border:0;background:var(--accent);color:#fff}.secondary{border:1px solid var(--line);background:#fff;color:var(--text)}button{cursor:pointer}.switch{text-align:center;margin-top:16px;font-size:13px;color:var(--muted)}.switch a{color:var(--accent);font-weight:700;text-decoration:none}.authMessage{margin-top:14px;padding:10px 12px;border-radius:10px;font-size:12px;background:#eef2ff;color:#3730a3}.authMessage.error{background:#fff1f2;color:#be123c}.authMessage.ok{background:#ecfdf5;color:#047857}.version{position:fixed;right:12px;bottom:10px;font-size:11px;color:#9ca3af}@media(max-width:850px){.auth{grid-template-columns:1fr}.brand{display:none}}</style></head><body>
+<div class="auth"><section class="brand"><h1>FLOWT</h1><p>Comece simples. Organize seu dia, execute prioridades e acompanhe sua evolução.</p></section><section class="wrap"><form id="signupForm" class="card"><h2>Criar conta</h2><p class="muted">Crie sua conta FLOWT ou use sua conta Google.</p><div class="field"><label for="nome">Nome</label><input id="nome" required placeholder="Seu nome"></div><div class="field"><label for="email">E-mail</label><input id="email" type="email" required placeholder="voce@email.com"></div><div class="field"><label for="senha">Senha</label><input id="senha" type="password" minlength="6" required placeholder="Crie uma senha"></div><button class="primary" type="submit">Criar minha conta</button><button id="googleBtn" class="secondary" type="button">Criar com Google</button><div id="authMessage" class="authMessage" hidden></div><div class="switch">Já tem conta? <a href="index.html">Entrar</a></div></form></section></div>
+<div class="version">FLOWT V4 Auth</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="auth.js"></script><script>
+document.getElementById('signupForm').addEventListener('submit',async e=>{e.preventDefault();try{await FLOWT_AUTH.emailSignup(document.getElementById('nome').value.trim(),document.getElementById('email').value.trim(),document.getElementById('senha').value)}catch(err){FLOWT_AUTH.message(err.message||'Não foi possível criar a conta.','error')}});
+document.getElementById('googleBtn').addEventListener('click',async()=>{try{await FLOWT_AUTH.googleLogin(false)}catch(err){FLOWT_AUTH.message(err.message||'Não foi possível abrir o Google.','error')}});
+</script></body></html>
