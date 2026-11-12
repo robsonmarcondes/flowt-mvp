@@ -15,12 +15,42 @@ body{margin:0;font-family:Arial,sans-serif;background:#f4f6fb;color:#172033}.hid
 <div class="floatTab" onclick="document.getElementById('fb').classList.toggle('open')"></div><div id="fb" class="floatBox"><b>FLOWT rápido</b><div class="floatGrid" style="margin-top:10px"><button>＋ Nova tarefa</button><button>✓ Hoje</button><button>📅 Agenda</button><button>🎙 Voz</button></div><input id="cap" placeholder="O que está na sua cabeça?"><button class="primary" onclick="saveTask()">Salvar</button></div>
 </section>
 <script>
-function toggle(){login.classList.toggle('hidden');signup.classList.toggle('hidden')}
-function doSignup(){let u={name:sn.value||'Usuário FLOWT',email:se.value||'usuario@flowt.app'};localStorage.setItem('flowtUser',JSON.stringify(u));openApp(u)}
-function doLogin(){let s=localStorage.getItem('flowtUser');let u=s?JSON.parse(s):{name:'Usuário FLOWT',email:le.value||'usuario@flowt.app'};openApp(u)}
-function googleDemo(){let u={name:'Usuário Google',email:'google@flowt.app'};localStorage.setItem('flowtUser',JSON.stringify(u));openApp(u)}
-function openApp(u){auth.classList.add('hidden');product.classList.remove('hidden');pn.textContent=u.name;pe.textContent=u.email;hello.textContent='Bom dia, '+u.name.split(' ')[0]+'. Vamos fazer o que importa.'}
-function logout(){product.classList.add('hidden');auth.classList.remove('hidden')}
-function saveTask(){let v=cap.value.trim();if(v){alert('Capturado: '+v+'\nNo produto funcional, isso ficará salvo na conta.');cap.value=''}}
-let s=localStorage.getItem('flowtUser');if(s)openApp(JSON.parse(s));
+function el(id){return document.getElementById(id)}
+function toggle(){el('login').classList.toggle('hidden');el('signup').classList.toggle('hidden')}
+function doSignup(){
+  const name=el('sn').value.trim(), email=el('se').value.trim(), pass=el('sp').value;
+  if(!name||!email||!pass){alert('Preencha nome, e-mail e senha.');return}
+  let u={name,email};
+  localStorage.setItem('flowtUser',JSON.stringify(u));
+  openApp(u);
+}
+function doLogin(){
+  const email=el('le').value.trim(), pass=el('lp').value;
+  if(!email||!pass){alert('Preencha e-mail e senha.');return}
+  let s=localStorage.getItem('flowtUser');
+  let u=s?JSON.parse(s):{name:'Usuário FLOWT',email};
+  openApp(u);
+}
+function googleDemo(){
+  let u={name:'Usuário Google',email:'google@flowt.app'};
+  localStorage.setItem('flowtUser',JSON.stringify(u));
+  openApp(u);
+}
+function openApp(u){
+  el('auth').classList.add('hidden');
+  el('product').classList.remove('hidden');
+  el('pn').textContent=u.name;
+  el('pe').textContent=u.email;
+  el('hello').textContent='Bom dia, '+u.name.split(' ')[0]+'. Vamos fazer o que importa.';
+}
+function logout(){
+  el('product').classList.add('hidden');
+  el('auth').classList.remove('hidden');
+}
+function saveTask(){
+  let v=el('cap').value.trim();
+  if(v){alert('Capturado: '+v+'\nNo produto funcional, isso ficará salvo na conta.');el('cap').value=''}
+}
+let s=localStorage.getItem('flowtUser');
+if(s){try{openApp(JSON.parse(s))}catch(e){localStorage.removeItem('flowtUser')}}
 </script></body></html>
