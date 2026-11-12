@@ -32,6 +32,7 @@ async function googleLogin(calendar=false){
   message(calendar?'Abrindo autorização do Google Calendar...':'Abrindo login do Google...');
   const options={redirectTo:BASE+'dashboard.html'};
   if(calendar){
+    try{sessionStorage.setItem('flowt.calendar.pending','1')}catch(e){}
     options.scopes='https://www.googleapis.com/auth/calendar.events';
     options.queryParams={access_type:'offline',prompt:'consent'};
   }
@@ -39,6 +40,8 @@ async function googleLogin(calendar=false){
   if(error) throw error;
 }
 async function session(){const {data,error}=await sb().auth.getSession();if(error)throw error;return data.session}
+async function user(){const {data,error}=await sb().auth.getUser();if(error)throw error;return data.user}
+async function updateUser(payload){const {data,error}=await sb().auth.updateUser(payload);if(error)throw error;return data.user}
 async function signOut(){await sb().auth.signOut();location.href=BASE}
-window.FLOWT_AUTH={sb,message,emailLogin,emailSignup,googleLogin,session,signOut,BASE};
+window.FLOWT_AUTH={sb,message,emailLogin,emailSignup,googleLogin,session,user,updateUser,signOut,BASE};
 })();
